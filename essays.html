@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essays - Lee Bui Fah's ePortfolio</title>
+    <link rel="stylesheet" type="text/css" href="css/theme1.css" id="theme-style">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <button class="theme-switch" onclick="toggleTheme()">Switch Theme</button>
+    <header class="main-header">
+        <div class="header-content">
+            <h1>Lee Bui Fah</h1>
+            <p class="subtitle">Master's Student / Grab Driver</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">ABOUT ME</a></li>
+                <li><a href="essays.html" class="active">ESSAYS</a></li>
+                <li><a href="projects.html">PROJECTS</a></li>
+                <li><a href="certificates.html">CERTIFICATES</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="essays-section">
+            <div class="essays-grid">
+                <div class="essay-card">
+                    <div class="essay-info">
+                        <h2>From Public Management to IT Management: A Career Transition</h2>
+                        <p>Reflecting on my journey from completing my Bachelor's degree in Public Management at UUM University in 2022 to pursuing my Master's in Information Technology Management at UNIMAS. This essay explores the challenges and opportunities of transitioning from public sector studies to technology management while balancing work as a Grab driver.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="essay-card">
+                    <div class="essay-info">
+                        <h2>Technology in Public Services: A Driver's Perspective</h2>
+                        <p>An analysis of how technology has transformed public services and transportation, based on my experience as a Grab driver and my background in Public Management. This essay examines the impact of digital platforms on both public service delivery and private transportation services in Sarawak.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Lee Bui Fah</p>
+    </footer>
+    <script>
+        function toggleTheme() {
+            const themeStyle = document.getElementById('theme-style');
+            const currentTheme = themeStyle.getAttribute('href');
+            const newTheme = currentTheme === 'css/theme1.css' ? 'css/theme2.css' : 'css/theme1.css';
+            themeStyle.setAttribute('href', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
+
+        window.addEventListener('load', () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.getElementById('theme-style').setAttribute('href', savedTheme);
+            }
+        });
+    </script>
+    <div class="audio-player">
+        <audio id="background-music" loop autoplay preload="auto">
+            <source src="audio/project-ambience.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+        <button onclick="toggleMusic()" id="music-toggle">
+            <i class="fas fa-pause" id="music-icon"></i>
+        </button>
+    </div>
+
+    <script>
+        const audio = document.getElementById('background-music');
+        const musicIcon = document.getElementById('music-icon');
+        let isPlaying = true;
+
+        audio.volume = 0.5;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            audio.play().catch(() => {
+                document.addEventListener('click', () => {
+                    audio.play();
+                }, { once: true });
+            });
+        });
+
+        function toggleMusic() {
+            if (isPlaying) {
+                audio.pause();
+                musicIcon.className = 'fas fa-play';
+            } else {
+                audio.play();
+                musicIcon.className = 'fas fa-pause';
+            }
+            isPlaying = !isPlaying;
+        }
+    </script>
+</body>
+</html>

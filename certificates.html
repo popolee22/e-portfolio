@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificates - Lee Bui Fah's ePortfolio</title>
+    <link rel="stylesheet" type="text/css" href="css/theme1.css" id="theme-style">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <button class="theme-switch" onclick="toggleTheme()">Switch Theme</button>
+    <header class="main-header">
+        <div class="header-content">
+            <h1>Lee Bui Fah</h1>
+            <p class="subtitle">Master's Student / Grab Driver</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">ABOUT ME</a></li>
+                <li><a href="essays.html">ESSAYS</a></li>
+                <li><a href="projects.html">PROJECTS</a></li>
+                <li><a href="certificates.html" class="active">CERTIFICATES</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="certificates-section">
+            <div class="certificates-grid">
+                <div class="certificate-card">
+                    <div class="certificate-image">
+                        <img src="images/degree.jpg" alt="Public Management Degree Certificate">
+                    </div>
+                    <div class="certificate-info">
+                        <h3><i class="fas fa-graduation-cap"></i> Degree in Public Management</h3>
+                        <p>UUM University</p>
+                        <p>Graduated: 2022</p>
+                        <div class="certificate-details">
+                            <p>Bachelor's degree focusing on public sector management and administration</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="certificate-card">
+                    <div class="certificate-image">
+                        <img src="images/diploma.jpg" alt="Marketing Diploma Certificate">
+                    </div>
+                    <div class="certificate-info">
+                        <h3><i class="fas fa-award"></i> Diploma in Marketing</h3>
+                        <p>Segi College Kuala Lumpur</p>
+                        <p>Completed: 2020</p>
+                        <div class="certificate-details">
+                            <p>Comprehensive study of marketing principles and strategies</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="certificate-card">
+                    <div class="certificate-image">
+                        <img src="images/sijil.jpg" alt="Sijil Sains Kesihatan Certificate">
+                    </div>
+                    <div class="certificate-info">
+                        <h3><i class="fas fa-heartbeat"></i> Sijil Sains Kesihatan</h3>
+                        <p>College PTPL Kuching</p>
+                        <p>Completed: 2009</p>
+                        <div class="certificate-details">
+                            <p>Health Sciences Certificate with focus on fundamental healthcare principles</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Lee Bui Fah</p>
+    </footer>
+    <script>
+        function toggleTheme() {
+            const themeStyle = document.getElementById('theme-style');
+            const currentTheme = themeStyle.getAttribute('href');
+            const newTheme = currentTheme === 'css/theme1.css' ? 'css/theme2.css' : 'css/theme1.css';
+            themeStyle.setAttribute('href', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
+
+        window.addEventListener('load', () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.getElementById('theme-style').setAttribute('href', savedTheme);
+            }
+        });
+    </script>
+    <div class="audio-player">
+        <audio id="background-music" loop autoplay preload="auto">
+            <source src="audio/project-ambience.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+        <button onclick="toggleMusic()" id="music-toggle">
+            <i class="fas fa-pause" id="music-icon"></i>
+        </button>
+    </div>
+
+    <script>
+        const audio = document.getElementById('background-music');
+        const musicIcon = document.getElementById('music-icon');
+        let isPlaying = true;
+
+        audio.volume = 0.5;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            audio.play().catch(() => {
+                document.addEventListener('click', () => {
+                    audio.play();
+                }, { once: true });
+            });
+        });
+
+        function toggleMusic() {
+            if (isPlaying) {
+                audio.pause();
+                musicIcon.className = 'fas fa-play';
+            } else {
+                audio.play();
+                musicIcon.className = 'fas fa-pause';
+            }
+            isPlaying = !isPlaying;
+        }
+    </script>
+</body>
+</html>

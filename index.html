@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lee Bui Fah's ePortfolio</title>
+    <link rel="stylesheet" type="text/css" href="css/theme1.css" id="theme-style">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .audio-player {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: var(--card-bg);
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-switch" onclick="toggleTheme()">Switch Theme</button>
+    <header class="main-header">
+        <div class="header-content">
+            <h1>Lee Bui Fah</h1>
+            <p class="subtitle">Master's Student / Grab Driver</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">ABOUT ME</a></li>
+                <li><a href="essays.html">ESSAYS</a></li>
+                <li><a href="projects.html">PROJECTS</a></li>
+                <li><a href="certificates.html">CERTIFICATES</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="intro">
+            <div class="about-content">
+                <div class="profile-image">
+                    <img src="images/profile.jpg" alt="Lee Bui Fah">
+                    <div class="tech-overlay"></div>
+                </div>
+                <div class="about-text">
+                    <h2><i class="fas fa-microchip"></i> About Me</h2>
+                    <div class="intro-text">
+                        <p>I'm currently pursuing my Master's in Information Technology Management at UNIMAS while working as a part-time Grab driver. My journey combines academic excellence with real-world experience, focusing on the intersection of technology and public service.</p>
+                    </div>
+                    
+                    <div class="experience-section">
+                        <h3>Key Experience</h3>
+                        <ul>
+                            <li><i class="fas fa-graduation-cap"></i> Pursuing Master's in IT Management at UNIMAS</li>
+                            <li><i class="fas fa-university"></i> Background in Public Management from UUM University</li>
+                            <li><i class="fas fa-car"></i> Active Grab driver, gaining practical customer service experience</li>
+                            <li><i class="fas fa-laptop-code"></i> Research focus on technology integration in public services</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="personal-section">
+                        <p>Outside of work and studies, I maintain an active lifestyle through regular gym sessions and continuously seek opportunities for personal and professional growth.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Lee Bui Fah</p>
+    </footer>
+    <script>
+        function toggleTheme() {
+            const themeStyle = document.getElementById('theme-style');
+            const currentTheme = themeStyle.getAttribute('href');
+            const newTheme = currentTheme === 'css/theme1.css' ? 'css/theme2.css' : 'css/theme1.css';
+            themeStyle.setAttribute('href', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
+
+        window.addEventListener('load', () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.getElementById('theme-style').setAttribute('href', savedTheme);
+            }
+        });
+    </script>
+    <!-- Add this after the header -->
+    <!-- Update the audio element to include autoplay and preload attributes -->
+    <!-- Keep this in index.html only -->
+        <div class="audio-player">
+            <audio id="background-music" loop autoplay preload="auto">
+                <source src="audio/background.mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+            <button onclick="toggleMusic()" id="music-toggle">
+                <i class="fas fa-pause" id="music-icon"></i>
+            </button>
+        </div>
+    
+        <script>
+            const audio = document.getElementById('background-music');
+            const musicIcon = document.getElementById('music-icon');
+            let isPlaying = true;
+    
+            audio.volume = 0.5;
+    
+            document.addEventListener('DOMContentLoaded', () => {
+                audio.play().catch(() => {
+                    document.addEventListener('click', () => {
+                        audio.play();
+                    }, { once: true });
+                });
+            });
+    
+            function toggleMusic() {
+                if (isPlaying) {
+                    audio.pause();
+                    musicIcon.className = 'fas fa-play';
+                } else {
+                    audio.play();
+                    musicIcon.className = 'fas fa-pause';
+                }
+                isPlaying = !isPlaying;
+            }
+        </script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Lee Bui Fah's ePortfolio</title>
+    <link rel="stylesheet" type="text/css" href="css/theme1.css" id="theme-style">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <button class="theme-switch" onclick="toggleTheme()">Switch Theme</button>
+    <header class="main-header">
+        <div class="header-content">
+            <h1>Lee Bui Fah</h1>
+            <p class="subtitle">Master's Student / Grab Driver</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">ABOUT ME</a></li>
+                <li><a href="essays.html">ESSAYS</a></li>
+                <li><a href="projects.html" class="active">PROJECTS</a></li>
+                <li><a href="certificates.html">CERTIFICATES</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="projects-section">
+            <h2><i class="fas fa-heart"></i> Community Service Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3>🌟 Project Surrender – "Small Acts, Big Love"</h3>
+                        <div class="project-meta">
+                            <p><i class="far fa-calendar-alt"></i> July 2021</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Southern Malaysia</p>
+                            <p><i class="far fa-newspaper"></i> Featured in: Sin Chew Daily (July 5, 2021)</p>
+                        </div>
+                        
+                        <div class="project-section">
+                            <h4>📖 Overview</h4>
+                            <p>During the height of the COVID-19 pandemic, I participated in a meaningful community aid project called "Project Surrender". This initiative was a grassroots effort by e-hailing drivers to support families in crisis who raised white flags as a sign of help.</p>
+                            <p>Within just three days, 56 fellow drivers and I responded to the call to action. Together with sponsors and community members, we successfully delivered over 200 food packages to families in need.</p>
+                        </div>
+
+                        <div class="project-section">
+                            <h4>🙌 My Role</h4>
+                            <ul>
+                                <li>Assisted in organizing and distributing food items</li>
+                                <li>Delivered aid to various neighborhoods while following SOPs</li>
+                                <li>Promoted the project on social media to gather public support</li>
+                                <li>Witnessed and listened to the stories of people who were struggling, which deepened my empathy and motivation to continue contributing</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-section">
+                            <h4>🧾 Outcome</h4>
+                            <ul>
+                                <li>Strengthened community bonds during a national crisis</li>
+                                <li>Helped vulnerable groups like the elderly and jobless</li>
+                                <li>Recognized in the local newspaper (Sin Chew Daily) for our collective efforts</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-section">
+                            <h4>💬 Reflection</h4>
+                            <p>This experience reminded me that even small actions can have a big impact. Helping others in times of hardship brings out the best in humanity. I am proud to have contributed to this initiative and hope to continue supporting community causes.</p>
+                        </div>
+                        
+                        <div class="project-section">
+                            <h4>📹 Project Video</h4>
+                            <div class="video-container">
+                                <video controls width="100%">
+                                    <source src="videos/project-surrender.mp4" type="video/mp4">
+                                    Your browser does not support the video element.
+                                </video>
+                            </div>
+                        </div>
+                        
+                        <div class="project-gallery">
+                            <h4>📸 Project Gallery</h4>
+                            <div class="gallery-grid">
+                                <div class="gallery-item"><img src="images/project-surrender/img1.jpg" alt="Food package preparation"></div>
+                                <div class="gallery-item"><img src="images/project-surrender/img2.jpg" alt="Drivers team meeting"></div>
+                                <div class="gallery-item"><img src="images/project-surrender/img3.jpg" alt="Loading supplies"></div>
+                                <div class="gallery-item"><img src="images/project-surrender/img4.jpg" alt="Community outreach"></div>
+                                <div class="gallery-item"><img src="images/project-surrender/img5.jpg" alt="Food delivery"></div>
+                                <div class="gallery-item"><img src="images/project-surrender/img6.jpg" alt="Team coordination"></div>
+                                <div class="gallery-item"><img src="images/project-surrender/img7.jpg" alt="Aid distribution"></div>
+                                <div class="gallery-item"><img src="images/project-surrender/img8.jpg" alt="Volunteer work"></div>
+                                <div class="gallery-item"><img src="images/project-surrender/img9.jpg" alt="Community support"></div>
+                                <div class="gallery-item"><img src="images/project-surrender/img10.jpg" alt="Project planning"></div>
+                                <div class="gallery-item"><img src="images/project-surrender/img11.jpg" alt="Team collaboration"></div>
+                                <div class="gallery-item"><img src="images/project-surrender/img12.jpg" alt="Supply organization"></div>
+                                <div class="gallery-item"><img src="images/project-surrender/img13.jpg" alt="Project completion"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Lee Bui Fah</p>
+    </footer>
+    <script>
+        function toggleTheme() {
+            const themeStyle = document.getElementById('theme-style');
+            const currentTheme = themeStyle.getAttribute('href');
+            const newTheme = currentTheme === 'css/theme1.css' ? 'css/theme2.css' : 'css/theme1.css';
+            themeStyle.setAttribute('href', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
+
+        window.addEventListener('load', () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.getElementById('theme-style').setAttribute('href', savedTheme);
+            }
+        });
+    </script>
+
+    <div class="audio-player">
+        <audio id="background-music" loop autoplay preload="auto">
+            <source src="audio/project-ambience.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+        <button onclick="toggleMusic()" id="music-toggle">
+            <i class="fas fa-pause" id="music-icon"></i>
+        </button>
+    </div>
+
+    <script>
+        const audio = document.getElementById('background-music');
+        const musicIcon = document.getElementById('music-icon');
+        let isPlaying = true;
+
+        audio.volume = 0.5;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            audio.play().catch(() => {
+                document.addEventListener('click', () => {
+                    audio.play();
+                }, { once: true });
+            });
+        });
+
+        function toggleMusic() {
+            if (isPlaying) {
+                audio.pause();
+                musicIcon.className = 'fas fa-play';
+            } else {
+                audio.play();
+                musicIcon.className = 'fas fa-pause';
+            }
+            isPlaying = !isPlaying;
+        }
+    </script>
+</body>
+</html>
